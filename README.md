@@ -49,13 +49,15 @@ Execute the following commands in the same terminal
   If the installer asks you to install some .NET/VC++ package you probably made a mistake since every requirement should be
   already installed.
 ### 5. Grant CAP_NET_RAW priviledges
-As explained [here](https://wiki.winehq.org/FAQ#Failed_to_use_ICMP_.28network_ping.29.2C_this_requires_special_permissions), since the WirelessUSG app relies on CAP_NET_RAW, we must allow it with:
-```
-sudo setcap cap_net_raw+epi /usr/bin/wine-preloader
-```
-```
-sudo dpkg-reconfigure wine-stable-amd64 wine-stable wine-stable-i386
-```
+- As explained [here](https://wiki.winehq.org/FAQ#Failed_to_use_ICMP_.28network_ping.29.2C_this_requires_special_permissions), since the WirelessUSG app    relies on CAP_NET_RAW, we must allow it with:
+  ```
+  sudo setcap cap_net_raw+epi /usr/bin/wine-preloader
+  ```
+- To effectively apply changes we also have to run:
+  ```
+  sudo dpkg-reconfigure wine-stable-amd64 wine-stable wine-stable-i386
+  ```
+### 6. Run the WirelessECG  App
 - Launch the program the first time:
   ```
   $HOME/.wine/drive_c/users/<USERNAME>/AppData/Local/Programs/WirelessUSG
